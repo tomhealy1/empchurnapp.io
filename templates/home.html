@@ -37,11 +37,12 @@
 
 .button{
   background-color: #000000;
-border: none;
+  border: 1px solid white;
 color: white;
 width:120px;
 height:60px;
 margin:2px;
+padding: 10px;
 text-align: center;
 text-decoration: none;
 display: inline-block;
@@ -60,12 +61,16 @@ margin:2px;
 }
 
 .textDiv {
-  width: 800px;
-  padding:20px;
+  width: 1850px;
+  padding:20px;  
 }
 
 .inputForm{
   padding:20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 #mainTitle {
@@ -76,7 +81,7 @@ margin:2px;
 
 #button {
 background-color: #000000;
-border: none;
+border: 1px solid white;
 color: white;
 width:120px;
 height:60px;
@@ -113,27 +118,39 @@ margin:2px;
  'promotion_last_5years',
  'function_RandD','salary_high']-->
     <form name="powerform" action="{{ url_for('predict') }}"method="post">
-    	<input type="number" style="width: 30em"  min="0" max="1" step= "0.01" name="Engagament" placeholder="Satifaction level Score between 0 and 1" required="required" />
+      <label for="Engagament">What was the satifaction level:</label>
+      <input type="number" style="width: 17em"  min="0" max="1" step= "0.01" name="Engagament" placeholder="Score between 0 and 1 (e.g. 0.70)" required="required" />
+      <br>
+      <br>
       <label for="workplace accident?">Has the employee had a workplace accident?:</label>
       <select name="workplace accident?">
         <option value="0">No</option>
         <option value="1">Yes</option>
       </select>
+      <br>
+      <br>
       <label for="Promoted">Has the employee been promoted in the last 5 years?:</label>
       <select name="Promoted">
         <option value="0">No</option>
         <option value="1">Yes</option>
-      </select> 
+      </select>
+      <br>
+      <br> 
       <label for="R&D">Is the person in the R&D department?:</label>
       <select name="R&D">
         <option value="0">No</option>
         <option value="1">Yes</option>
       </select> 
-      <label for="Salary">Is the on a high salry for the role and experience?:</label>
+      <br>
+      <br>
+      <label for="Salary">Is the employee on a high salary for the role and experience?:</label>
       <select name="Salary">
         <option value="0">No</option>
         <option value="1">Yes</option>
       </select> 
+      <br>
+      <br>
+
         <button type="submit" class="button">Predict</button>
     </form>
  </div>
@@ -143,10 +160,8 @@ margin:2px;
        <br>
  <div class="textDiv">
   <h2>Background</h2> 
-  <p>This app is using the IBM dataset and the Susan Li predicting employee article to evaluate and understand our datset and then try to 
-    predict from a given set of variables who will leave Acme Safes Ltd.We visualise our data and then begin building our model. As we are 
-    trying to classify a binary outcome we are using logistic regression first and then we move on to Random Forest. We use RFE for feature selection.
-     We save our model by pickling it and then serving our inputs through a form into our model. 
+  <p>This app is using the IBM dataset and the Susan Li predicting employee article to evaluate and understand our datset and then try to predict from a given set of variables who will leave Acme Safes Ltd.We visualise our data and then begin building our model. As we are 
+    trying to classify a binary outcome we are using logistic regression first and then we move on to Random Forest. We use RFE for feature selection. We save our model by pickling it and then serving our inputs through a form into our model. We selected 5 feature
       </div>
 
 </body>
